@@ -293,7 +293,7 @@ class App {
             borderRadius = 0,
             font = 'bold 30px Figtree',
             scrollSpeed = 2,
-            scrollEase = 0.08
+            scrollEase = 0.12
         } = {}
     ) {
         document.documentElement.classList.remove('no-js');
@@ -332,8 +332,8 @@ class App {
     createGeometry() {
         const isMobile = window.innerWidth < 768;
         this.planeGeometry = new Plane(this.gl, {
-            heightSegments: isMobile ? 2 : 5,
-            widthSegments: isMobile ? 4 : 10
+            heightSegments: 1,
+            widthSegments: 2
         });
     }
     createMedias(items, bend = 1, textColor, borderRadius, font) {
@@ -466,7 +466,7 @@ export default function CircularGallery({
     borderRadius = 0.05,
     font = 'bold 30px Figtree',
     scrollSpeed = 2,
-    scrollEase = 0.03
+    scrollEase = 0.12
 }: {
     items?: { image: string; text: string }[];
     bend?: number;

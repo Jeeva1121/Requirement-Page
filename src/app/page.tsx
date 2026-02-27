@@ -106,7 +106,7 @@ export default function Home() {
                 {/* Full background video */}
                 <div className="absolute inset-0 w-full h-full">
                     <video
-                        src="/videos/(1) 10915129-hd_3840_2160_30fps.mp4"
+                        src="/videos/(1)%2010915129-hd_3840_2160_30fps.mp4"
                         autoPlay
                         muted
                         loop
@@ -586,18 +586,13 @@ export default function Home() {
                         transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
                         className="w-full md:w-1/2 relative rounded-[20px] sm:rounded-[32px] overflow-hidden min-h-[300px] sm:min-h-[400px] md:min-h-[600px] group bg-black"
                     >
-                        <motion.video
+                        <video
                             src="/videos/7019991_2d_Animal_3840x2160.mp4"
-                            initial="hidden"
-                            whileInView="visible"
-                            viewport={{ once: true, amount: 0.2 }}
-                            variants={imageReveal}
                             autoPlay
                             muted
                             loop
                             playsInline
-                            className="absolute inset-0 w-full h-full object-cover rounded-[24px] shadow-2xl bg-black"
-                            style={{ transform: 'scale(0.9)', transition: 'transform 0.5s ease-out' }}
+                            className="absolute inset-0 w-full h-full object-cover"
                         />
                         {/* Shadow overlay so text pops safely */}
                         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent pointer-events-none" />
