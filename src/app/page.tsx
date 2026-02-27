@@ -56,17 +56,17 @@ const fadeUp = {
     visible: (i: number) => ({
         opacity: 1,
         y: 0,
-        transition: { duration: 0.6, delay: i * 0.1, ease: [0.25, 0.46, 0.45, 0.94] },
+        transition: { duration: 0.8, delay: i * 0.1, ease: [0.16, 1, 0.3, 1] },
     }),
 };
 
 const imageReveal = {
-    hidden: { opacity: 0, y: 30, scale: 0.98 },
+    hidden: { clipPath: "polygon(0 0, 0 0, 0 100%, 0% 100%)", scale: 1.1, opacity: 0 },
     visible: {
-        opacity: 1,
-        y: 0,
+        clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
         scale: 1,
-        transition: { duration: 0.8, ease: "easeOut" }
+        opacity: 1,
+        transition: { duration: 1.2, ease: [0.16, 1, 0.3, 1] }
     }
 };
 
@@ -83,14 +83,20 @@ const staggerContainer = {
 
 const itemScale = {
     hidden: { opacity: 0, scale: 0.9 },
-    visible: { opacity: 1, scale: 1, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } }
+    visible: { opacity: 1, scale: 1, transition: { duration: 1, ease: [0.16, 1, 0.3, 1] } }
 };
 
 export default function Home() {
     return (
         <main className="relative min-h-screen" style={{ backgroundColor: '#F8FAFC', color: '#1A1A1A' }}>
             <LoadingScreen />
-            <SplashCursor />
+            <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 1.5, delay: 0.5 }}
+            >
+                <SplashCursor />
+            </motion.div>
             <Navbar />
 
             {/* ═══════════════════════════════════════════════════
@@ -142,18 +148,34 @@ export default function Home() {
                         transition={{ duration: 0.8, delay: 0.4 }}
                         className="flex flex-col sm:flex-row gap-4 items-start"
                     >
-                        <a href="#requirements" className="group inline-flex items-center justify-center sm:justify-start gap-3 px-4 sm:pl-7 sm:pr-2 py-2.5 sm:py-2.5 bg-white text-[#1A1A1A] font-bold rounded-full hover:bg-gray-100 transition-all hover:-translate-y-1 hover:shadow-xl shadow-[0_8px_30px_rgba(255,255,255,0.15)] whitespace-nowrap">
+                        <motion.a
+                            whileHover={{ y: -5, scale: 1.02 }}
+                            whileTap={{ scale: 0.98 }}
+                            href="#requirements"
+                            className="group inline-flex items-center justify-center sm:justify-start gap-3 px-4 sm:pl-7 sm:pr-2 py-2.5 sm:py-2.5 bg-white text-[#1A1A1A] font-bold rounded-full hover:bg-gray-100 transition-all hover:shadow-xl shadow-[0_8px_30px_rgba(255,255,255,0.15)] whitespace-nowrap"
+                        >
                             <span className="text-[14px] sm:text-[16px]">Start Project</span>
-                            <span className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-[#1A1A1A] flex items-center justify-center transition-transform group-hover:rotate-[-35deg] shrink-0">
+                            <motion.span
+                                whileHover={{ rotate: -35 }}
+                                className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-[#1A1A1A] flex items-center justify-center transition-transform shrink-0"
+                            >
                                 <ArrowRight className="w-4 h-4 text-white" />
-                            </span>
-                        </a>
-                        <a href="#portfolio" className="group inline-flex items-center justify-center sm:justify-start gap-3 px-4 sm:pl-7 sm:pr-2 py-2.5 sm:py-2.5 bg-white/10 backdrop-blur-md text-white font-bold rounded-full border border-white/20 hover:bg-white/20 transition-all text-center hover:-translate-y-1 whitespace-nowrap">
+                            </motion.span>
+                        </motion.a>
+                        <motion.a
+                            whileHover={{ y: -5, scale: 1.02 }}
+                            whileTap={{ scale: 0.98 }}
+                            href="#portfolio"
+                            className="group inline-flex items-center justify-center sm:justify-start gap-3 px-4 sm:pl-7 sm:pr-2 py-2.5 sm:py-2.5 bg-white/10 backdrop-blur-md text-white font-bold rounded-full border border-white/20 hover:bg-white/20 transition-all text-center whitespace-nowrap"
+                        >
                             <span className="text-[14px] sm:text-[16px]">Portfolio</span>
-                            <span className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white/20 flex items-center justify-center transition-transform group-hover:rotate-[-35deg] shrink-0">
+                            <motion.span
+                                whileHover={{ rotate: -35 }}
+                                className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white/20 flex items-center justify-center transition-transform shrink-0"
+                            >
                                 <ArrowRight className="w-4 h-4 text-white" />
-                            </span>
-                        </a>
+                            </motion.span>
+                        </motion.a>
                     </motion.div>
                 </div>
             </section>
@@ -212,7 +234,8 @@ export default function Home() {
                             <motion.div
                                 initial="hidden"
                                 whileInView="visible"
-                                viewport={{ once: true, amount: 0.1 }}
+                                whileHover={{ y: -10 }}
+                                viewport={{ once: true, amount: 0.2 }}
                                 variants={imageReveal}
                                 className="relative aspect-[3/4] rounded-[32px] sm:rounded-[48px] overflow-hidden max-w-[280px] sm:max-w-md w-full border-4 border-white shadow-2xl"
                             >
@@ -221,7 +244,7 @@ export default function Home() {
                                     alt="Creative digital experiences"
                                     fill
                                     sizes="(max-width: 1024px) 100vw, 400px"
-                                    className="object-cover transition-transform duration-1000"
+                                    className="object-cover transition-transform duration-700 hover:scale-110"
                                 />
                             </motion.div>
                         </div>
@@ -260,9 +283,10 @@ export default function Home() {
                                     key={i}
                                     initial="hidden"
                                     whileInView="visible"
-                                    viewport={{ once: true, amount: 0.1 }}
+                                    whileHover={{ y: -8 }}
+                                    viewport={{ once: true, amount: 0.2 }}
                                     variants={imageReveal}
-                                    className="group bg-white rounded-[24px] sm:rounded-[28px] overflow-hidden transition-all duration-500 hover:-translate-y-2 shadow-[0_4px_20px_rgba(0,0,0,0.06)] hover:shadow-[0_20px_60px_rgba(0,0,0,0.12)] border border-gray-100/80 gpu-accelerated"
+                                    className="group bg-white rounded-[24px] sm:rounded-[28px] overflow-hidden transition-all duration-500 shadow-[0_4px_20px_rgba(0,0,0,0.06)] hover:shadow-[0_20px_60px_rgba(0,0,0,0.12)] border border-gray-100/80 gpu-accelerated"
                                 >
                                     {/* Image Container */}
                                     <div
@@ -273,7 +297,7 @@ export default function Home() {
                                             alt={service.title}
                                             fill
                                             sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                                            className="object-cover transition-transform duration-700 group-hover:scale-[1.15]"
+                                            className="object-cover transition-transform duration-700 group-hover:scale-110"
                                             style={i === 3 ? { objectPosition: 'center 20%' } : undefined}
                                         />
                                     </div>
@@ -346,16 +370,17 @@ export default function Home() {
                             <motion.div
                                 initial="hidden"
                                 whileInView="visible"
-                                viewport={{ once: true }}
+                                whileHover={{ scale: 1.02 }}
+                                viewport={{ once: true, amount: 0.2 }}
                                 variants={imageReveal}
-                                className="relative aspect-[4/3] rounded-[48px] overflow-hidden border-8 border-white shadow-2xl bg-white rotate-2 hover:rotate-0 transition-transform duration-700"
+                                className="relative aspect-[4/3] rounded-[48px] overflow-hidden border-8 border-white shadow-2xl bg-white rotate-2 transition-transform duration-700"
                             >
                                 <Image
                                     src="/featured-project-v2.png"
                                     alt="Featured project showcase"
                                     fill
                                     sizes="(max-width: 1024px) 100vw, 50vw"
-                                    className="object-cover transition-transform duration-1000"
+                                    className="object-cover transition-transform duration-700 hover:scale-110"
                                 />
                             </motion.div>
                         </div>
@@ -389,7 +414,7 @@ export default function Home() {
                 <motion.div
                     initial={{ opacity: 0, scale: 0.95 }}
                     whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
+                    viewport={{ once: true, amount: 0.2 }}
                     transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
                     className="w-full h-[400px] sm:h-[500px] md:h-[600px] relative mt-10"
                 >
@@ -563,8 +588,12 @@ export default function Home() {
                         transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
                         className="w-full md:w-1/2 relative rounded-[20px] sm:rounded-[32px] overflow-hidden min-h-[300px] sm:min-h-[400px] md:min-h-[600px] group bg-black"
                     >
-                        <video
+                        <motion.video
                             src="/videos/explore-bg.mp4"
+                            initial="hidden"
+                            whileInView="visible"
+                            viewport={{ once: true, amount: 0.2 }}
+                            variants={imageReveal}
                             autoPlay
                             muted
                             loop
