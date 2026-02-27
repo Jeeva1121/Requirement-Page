@@ -61,11 +61,11 @@ const fadeUp = {
 };
 
 const imageReveal = {
-    hidden: { clipPath: "polygon(0 0, 1% 0, 1% 100%, 0% 100%)", scale: 1.1, opacity: 0 },
+    hidden: { opacity: 0, y: 40, scale: 0.95 },
     visible: {
-        clipPath: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
-        scale: 1,
         opacity: 1,
+        y: 0,
+        scale: 1,
         transition: { duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }
     }
 };
@@ -168,7 +168,7 @@ export default function Home() {
                         <motion.div
                             initial="hidden"
                             whileInView="visible"
-                            viewport={{ once: true, margin: "-100px" }}
+                            viewport={{ once: true, margin: "-20px" }}
                             className="space-y-8 relative z-10"
                         >
                             <motion.div variants={fadeUp} custom={0} className="inline-flex items-center gap-2 px-4 py-2 rounded-full" style={{ backgroundColor: '#F0EEFF', color: '#6B4EFF' }}>
@@ -212,7 +212,7 @@ export default function Home() {
                             <motion.div
                                 initial="hidden"
                                 whileInView="visible"
-                                viewport={{ once: true, margin: "-100px" }}
+                                viewport={{ once: true, margin: "-20px" }}
                                 variants={imageReveal}
                                 className="relative aspect-[3/4] rounded-[48px] overflow-hidden max-w-md w-full border-4 border-white shadow-2xl"
                             >
@@ -260,7 +260,7 @@ export default function Home() {
                                     key={i}
                                     initial="hidden"
                                     whileInView="visible"
-                                    viewport={{ once: true, margin: "-50px" }}
+                                    viewport={{ once: true, margin: "-20px" }}
                                     variants={imageReveal}
                                     className="group bg-white rounded-[28px] overflow-hidden transition-all duration-500 hover:-translate-y-3 shadow-[0_4px_20px_rgba(0,0,0,0.06)] hover:shadow-[0_20px_60px_rgba(0,0,0,0.12)] border border-gray-100/80 gpu-accelerated"
                                 >

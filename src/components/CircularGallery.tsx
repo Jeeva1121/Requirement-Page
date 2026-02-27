@@ -330,8 +330,8 @@ class App {
     }
     createGeometry() {
         this.planeGeometry = new Plane(this.gl, {
-            heightSegments: 10,
-            widthSegments: 20
+            heightSegments: 5,
+            widthSegments: 10
         });
     }
     createMedias(items, bend = 1, textColor, borderRadius, font) {
