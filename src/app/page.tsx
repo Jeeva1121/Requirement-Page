@@ -121,7 +121,7 @@ export default function Home() {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent pointer-events-none" />
 
                 {/* Text content */}
-                <div className="relative z-10 w-full max-w-7xl mx-auto px-6 sm:px-10 md:px-14 lg:px-20 pb-16 sm:pb-20 lg:pb-28 pt-32">
+                <div className="relative z-10 w-full max-w-7xl mx-auto px-6 sm:px-10 md:px-14 lg:px-20 pb-24 sm:pb-20 lg:pb-28 pt-32">
                     <motion.h1
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
@@ -410,11 +410,11 @@ export default function Home() {
                 </div>
                 {/* CircularGallery — full width, tall container for big cards */}
                 <motion.div
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true, amount: 0.2 }}
-                    transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
-                    className="w-full h-[400px] sm:h-[500px] md:h-[600px] relative mt-10"
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    viewport={{ once: true, amount: 0.1 }}
+                    transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+                    className="w-full h-[400px] sm:h-[500px] md:h-[600px] relative mt-10 gpu-accelerated"
                 >
                     <CircularGallery
                         items={portfolioGalleryItems}
@@ -441,7 +441,7 @@ export default function Home() {
                     >
                         <motion.h2 variants={fadeUp} custom={0} className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight leading-[1.1]" style={{ color: '#1A1A1A', fontFamily: 'var(--font-sans)' }}>
                             Our <br className="hidden xl:block" />
-                            <span className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl" style={{ fontFamily: 'var(--font-caveat)', color: '#6B4EFF' }}>interactive</span>
+                            <span className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl" style={{ fontFamily: 'var(--font-caveat)', color: '#6B4EFF' }}>interactive</span>{" "}
                             <br className="hidden xl:block" />
                             features
                         </motion.h2>
