@@ -91,6 +91,11 @@ const SplashCursor = ({
         const canvas = canvasRef.current;
         if (!canvas) return;
 
+        const isMobile = window.innerWidth < 768;
+        const simRes = isMobile ? 16 : SIM_RES;
+        const dyeRes = isMobile ? 64 : DYE_RES;
+        const pressureIterations = isMobile ? 4 : PRESSURE_ITERATIONS;
+
         const gl = (canvas.getContext("webgl2") || canvas.getContext("webgl") || canvas.getContext("experimental-webgl")) as (WebGLRenderingContext | WebGL2RenderingContext | null);
         if (!gl) return;
 
@@ -341,7 +346,7 @@ const SplashCursor = ({
             return { get read() { return f1; }, get write() { return f2; }, swap() { const t = f1; f1 = f2; f2 = t; } };
         };
 
-        const simRes = SIM_RES, dyeRes = DYE_RES;
+
         const dye = createDoubleFBO(dyeRes, dyeRes, ext.formatRGBA.internalFormat, ext.formatRGBA.format, ext.halfFloatTexType, gl.LINEAR);
         const vel = createDoubleFBO(simRes, simRes, ext.formatRG.internalFormat, ext.formatRG.format, ext.halfFloatTexType, gl.LINEAR);
         const div = createFBO(simRes, simRes, ext.formatR.internalFormat, ext.formatR.format, ext.halfFloatTexType, gl.NEAREST);
@@ -368,7 +373,7 @@ const SplashCursor = ({
             divP.bind(gl); gl.uniform2f(divP.uniforms.texelSize, 1 / simRes, 1 / simRes); gl.uniform1i(divP.uniforms.uVelocity, vel.read.attach(0)); blit(div);
             clearP.bind(gl); gl.uniform1i(clearP.uniforms.uTexture, pres.read.attach(0)); gl.uniform1f(clearP.uniforms.value, PRESSURE); blit(pres.write); pres.swap();
             pressureP.bind(gl); gl.uniform2f(pressureP.uniforms.texelSize, 1 / simRes, 1 / simRes); gl.uniform1i(pressureP.uniforms.uDivergence, div.attach(0));
-            for (let i = 0; i < PRESSURE_ITERATIONS; i++) { gl.uniform1i(pressureP.uniforms.uPressure, pres.read.attach(1)); blit(pres.write); pres.swap(); }
+            for (let i = 0; i < pressureIterations; i++) { gl.uniform1i(pressureP.uniforms.uPressure, pres.read.attach(1)); blit(pres.write); pres.swap(); }
             gradP.bind(gl); gl.uniform2f(gradP.uniforms.texelSize, 1 / simRes, 1 / simRes); gl.uniform1i(gradP.uniforms.uPressure, pres.read.attach(0)); gl.uniform1i(gradP.uniforms.uVelocity, vel.read.attach(1)); blit(vel.write); vel.swap();
             const aV = setMaterialKeywords(advectM, []); aV.bind(gl); gl.uniform2f(aV.uniforms.texelSize, 1 / simRes, 1 / simRes); gl.uniform1i(aV.uniforms.uVelocity, vel.read.attach(0)); gl.uniform1i(aV.uniforms.uSource, vel.read.attach(0)); gl.uniform1f(aV.uniforms.dt, dt); gl.uniform1f(aV.uniforms.dissipation, VELOCITY_DISSIPATION); blit(vel.write); vel.swap();
             const aD = setMaterialKeywords(advectM, []); aD.bind(gl); gl.uniform2f(aD.uniforms.texelSize, 1 / simRes, 1 / simRes); gl.uniform1i(aD.uniforms.uVelocity, vel.read.attach(0)); gl.uniform1i(aD.uniforms.uSource, dye.read.attach(1)); gl.uniform1f(aD.uniforms.dissipation, DENSITY_DISSIPATION); blit(dye.write); dye.swap();
