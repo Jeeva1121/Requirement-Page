@@ -1,8 +1,6 @@
 # 💎 WebCraft | Pursuit of Digital Perfection
 
-![WebCraft Banner](https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2426&auto=format&fit=crop)
-
-### [✨ View Live Demo](https://requirement-page.vercel.app)
+![WebCraft Banner](/public/web-dev.png)
 
 WebCraft is a high-performance, luxury-grade landing page designed for cutting-edge digital agencies. It features a sophisticated animation pipeline, 3D interactive galleries, and a liquid-smooth user experience optimized for both desktops and low-end mobile devices.
 
