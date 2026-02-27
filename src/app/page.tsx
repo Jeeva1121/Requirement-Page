@@ -61,12 +61,12 @@ const fadeUp = {
 };
 
 const imageReveal = {
-    hidden: { opacity: 0, y: 40, scale: 0.95 },
+    hidden: { opacity: 0, y: 30, scale: 0.98 },
     visible: {
         opacity: 1,
         y: 0,
         scale: 1,
-        transition: { duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }
+        transition: { duration: 0.8, ease: "easeOut" }
     }
 };
 
@@ -161,7 +161,7 @@ export default function Home() {
             {/* ═══════════════════════════════════════════════════
                 ABOUT — bg: #F4F3EF (cream)
             ═══════════════════════════════════════════════════ */}
-            <section className="py-16 sm:py-24 lg:py-32 px-4 sm:px-6 relative overflow-hidden anim-wrapper" style={{ backgroundColor: '#FFFFFF' }}>
+            <section className="py-12 sm:py-24 lg:py-32 px-4 sm:px-6 relative overflow-hidden anim-wrapper" style={{ backgroundColor: '#FFFFFF' }}>
                 <div className="max-w-7xl mx-auto">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
                         {/* Text Content */}
@@ -212,16 +212,16 @@ export default function Home() {
                             <motion.div
                                 initial="hidden"
                                 whileInView="visible"
-                                viewport={{ once: true, margin: "-20px" }}
+                                viewport={{ once: true, amount: 0.1 }}
                                 variants={imageReveal}
-                                className="relative aspect-[3/4] rounded-[48px] overflow-hidden max-w-md w-full border-4 border-white shadow-2xl"
+                                className="relative aspect-[3/4] rounded-[32px] sm:rounded-[48px] overflow-hidden max-w-[280px] sm:max-w-md w-full border-4 border-white shadow-2xl"
                             >
                                 <Image
                                     src="/about-creative.png"
                                     alt="Creative digital experiences"
                                     fill
                                     sizes="(max-width: 1024px) 100vw, 400px"
-                                    className="object-cover transition-transform duration-1000 group-hover:scale-110"
+                                    className="object-cover transition-transform duration-1000"
                                 />
                             </motion.div>
                         </div>
@@ -260,9 +260,9 @@ export default function Home() {
                                     key={i}
                                     initial="hidden"
                                     whileInView="visible"
-                                    viewport={{ once: true, margin: "-20px" }}
+                                    viewport={{ once: true, amount: 0.1 }}
                                     variants={imageReveal}
-                                    className="group bg-white rounded-[28px] overflow-hidden transition-all duration-500 hover:-translate-y-3 shadow-[0_4px_20px_rgba(0,0,0,0.06)] hover:shadow-[0_20px_60px_rgba(0,0,0,0.12)] border border-gray-100/80 gpu-accelerated"
+                                    className="group bg-white rounded-[24px] sm:rounded-[28px] overflow-hidden transition-all duration-500 hover:-translate-y-2 shadow-[0_4px_20px_rgba(0,0,0,0.06)] hover:shadow-[0_20px_60px_rgba(0,0,0,0.12)] border border-gray-100/80 gpu-accelerated"
                                 >
                                     {/* Image Container */}
                                     <div
@@ -355,7 +355,7 @@ export default function Home() {
                                     alt="Featured project showcase"
                                     fill
                                     sizes="(max-width: 1024px) 100vw, 50vw"
-                                    className="object-cover transition-transform duration-1000 group-hover:scale-110"
+                                    className="object-cover transition-transform duration-1000"
                                 />
                             </motion.div>
                         </div>
@@ -451,7 +451,7 @@ export default function Home() {
                         <motion.div
                             variants={fadeUp}
                             custom={0}
-                            className="relative p-10 rounded-[40px] overflow-hidden group min-h-[320px] flex flex-col gpu-accelerated"
+                            className="relative p-7 sm:p-10 rounded-[32px] sm:rounded-[40px] overflow-hidden group min-h-[280px] sm:min-h-[320px] flex flex-col gpu-accelerated"
                             style={{ backgroundColor: '#E5DBFF' }}
                         >
                             <div className="absolute -top-12 -right-12 w-48 h-48 rounded-full border-[20px] border-[#D1C0F9] opacity-70" />
@@ -474,7 +474,7 @@ export default function Home() {
                         <motion.div
                             variants={fadeUp}
                             custom={1}
-                            className="relative p-10 rounded-[40px] overflow-hidden group md:translate-y-12 min-h-[320px] flex flex-col gpu-accelerated"
+                            className="relative p-7 sm:p-10 rounded-[32px] sm:rounded-[40px] overflow-hidden group md:translate-y-12 min-h-[280px] sm:min-h-[320px] flex flex-col gpu-accelerated"
                             style={{ backgroundColor: '#6B4EFF' }}
                         >
                             <div className="absolute -top-4 -right-4 w-40 h-40 bg-[#8C74FF] rounded-full rotate-12 opacity-80" />
@@ -497,7 +497,7 @@ export default function Home() {
                         <motion.div
                             variants={fadeUp}
                             custom={2}
-                            className="relative p-10 rounded-[40px] overflow-hidden group min-h-[320px] flex flex-col mt-4 md:mt-0 gpu-accelerated"
+                            className="relative p-7 sm:p-10 rounded-[32px] sm:rounded-[40px] overflow-hidden group min-h-[280px] sm:min-h-[320px] flex flex-col mt-4 md:mt-0 gpu-accelerated"
                             style={{ backgroundColor: '#FFD166' }}
                         >
                             <div className="absolute top-8 right-8 grid grid-cols-4 gap-3 opacity-30">
@@ -521,7 +521,7 @@ export default function Home() {
                         <motion.div
                             variants={fadeUp}
                             custom={3}
-                            className="relative p-10 rounded-[40px] overflow-hidden group md:translate-y-12 min-h-[320px] flex flex-col mt-4 md:mt-0 gpu-accelerated"
+                            className="relative p-7 sm:p-10 rounded-[32px] sm:rounded-[40px] overflow-hidden group md:translate-y-12 min-h-[280px] sm:min-h-[320px] flex flex-col mt-4 md:mt-0 gpu-accelerated"
                             style={{ backgroundColor: '#BEE5FD' }}
                         >
                             <div className="absolute -bottom-10 -right-10 w-48 h-48 bg-[#9BD6FB] rounded-full" />

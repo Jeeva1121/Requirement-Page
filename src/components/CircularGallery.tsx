@@ -293,7 +293,7 @@ class App {
             borderRadius = 0,
             font = 'bold 30px Figtree',
             scrollSpeed = 2,
-            scrollEase = 0.05
+            scrollEase = 0.08
         } = {}
     ) {
         document.documentElement.classList.remove('no-js');
@@ -311,10 +311,11 @@ class App {
         this.addEventListeners();
     }
     createRenderer() {
+        const isMobile = window.innerWidth < 768;
         this.renderer = new Renderer({
             alpha: true,
-            antialias: true,
-            dpr: Math.min(window.devicePixelRatio || 1, 2)
+            antialias: !isMobile,
+            dpr: isMobile ? 1 : Math.min(window.devicePixelRatio || 1, 2)
         });
         this.gl = this.renderer.gl;
         this.gl.clearColor(0, 0, 0, 0);
@@ -329,9 +330,10 @@ class App {
         this.scene = new Transform();
     }
     createGeometry() {
+        const isMobile = window.innerWidth < 768;
         this.planeGeometry = new Plane(this.gl, {
-            heightSegments: 5,
-            widthSegments: 10
+            heightSegments: isMobile ? 3 : 5,
+            widthSegments: isMobile ? 6 : 10
         });
     }
     createMedias(items, bend = 1, textColor, borderRadius, font) {
