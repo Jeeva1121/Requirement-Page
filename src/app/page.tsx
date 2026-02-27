@@ -106,7 +106,7 @@ export default function Home() {
                 {/* Full background video */}
                 <div className="absolute inset-0 w-full h-full">
                     <video
-                        src="/videos/hero-4k.mp4"
+                        src="/videos/(1) 10915129-hd_3840_2160_30fps.mp4"
                         autoPlay
                         muted
                         loop
@@ -587,7 +587,7 @@ export default function Home() {
                         className="w-full md:w-1/2 relative rounded-[20px] sm:rounded-[32px] overflow-hidden min-h-[300px] sm:min-h-[400px] md:min-h-[600px] group bg-black"
                     >
                         <motion.video
-                            src="/videos/explore-bg.mp4"
+                            src="/videos/7019991_2d_Animal_3840x2160.mp4"
                             initial="hidden"
                             whileInView="visible"
                             viewport={{ once: true, amount: 0.2 }}
