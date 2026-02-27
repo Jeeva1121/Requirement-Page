@@ -10,7 +10,7 @@ export default function LoadingScreen() {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        const timeout = setTimeout(() => setLoading(false), 3500);
+        const timeout = setTimeout(() => setLoading(false), 1800);
         return () => clearTimeout(timeout);
     }, []);
 

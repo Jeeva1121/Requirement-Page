@@ -92,13 +92,9 @@ const SplashCursor = ({
         if (!canvas) return;
 
         const isMobile = window.innerWidth < 768;
-
-        // Disable fluid simulation on mobile completely to prevent lag
-        if (isMobile) return;
-
-        const simRes = SIM_RES;
-        const dyeRes = DYE_RES;
-        const pressureIterations = PRESSURE_ITERATIONS;
+        const simRes = isMobile ? 16 : SIM_RES;
+        const dyeRes = isMobile ? 64 : DYE_RES;
+        const pressureIterations = isMobile ? 4 : PRESSURE_ITERATIONS;
 
         const gl = (canvas.getContext("webgl2") || canvas.getContext("webgl") || canvas.getContext("experimental-webgl")) as (WebGLRenderingContext | WebGL2RenderingContext | null);
         if (!gl) return;

@@ -61,12 +61,11 @@ const fadeUp = {
 };
 
 const imageReveal = {
-    hidden: { opacity: 0, y: 30, scale: 0.98 },
+    hidden: { clipPath: "polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%)", opacity: 0 },
     visible: {
+        clipPath: "polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)",
         opacity: 1,
-        y: 0,
-        scale: 1,
-        transition: { duration: 1, ease: [0.16, 1, 0.3, 1] }
+        transition: { duration: 1.2, ease: [0.16, 1, 0.3, 1] }
     }
 };
 
@@ -112,6 +111,7 @@ export default function Home() {
                         muted
                         loop
                         playsInline
+                        preload="auto"
                         className="w-full h-full object-cover"
                     />
                 </div>
@@ -143,9 +143,9 @@ export default function Home() {
                     </motion.p>
 
                     <motion.div
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true, amount: 0.1 }}
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8, delay: 0.4 }}
                         className="flex flex-col sm:flex-row gap-4 items-start"
                     >
                         <motion.a
@@ -190,7 +190,7 @@ export default function Home() {
                         <motion.div
                             initial="hidden"
                             whileInView="visible"
-                            viewport={{ once: true, amount: 0.01 }}
+                            viewport={{ once: true, margin: "-20px" }}
                             className="space-y-8 relative z-10"
                         >
                             <motion.div variants={fadeUp} custom={0} className="inline-flex items-center gap-2 px-4 py-2 rounded-full" style={{ backgroundColor: '#F0EEFF', color: '#6B4EFF' }}>
@@ -209,7 +209,7 @@ export default function Home() {
 
                             <motion.div variants={fadeUp} custom={3}>
                                 <a
-                                    href="#contact"
+                                    href="#requirements"
                                     className="group inline-flex items-center gap-3 pl-8 pr-2 py-2 bg-[#FF9F1C] text-white font-bold rounded-full hover:bg-[#E88D0C] transition-all hover:-translate-y-1 hover:shadow-xl shadow-[0_8px_30px_rgba(255,159,28,0.35)]"
                                 >
                                     <span className="text-[16px]">Learn More</span>
@@ -234,8 +234,7 @@ export default function Home() {
                             <motion.div
                                 initial="hidden"
                                 whileInView="visible"
-                                whileHover={{ y: -10 }}
-                                viewport={{ once: true, amount: 0.01 }}
+                                viewport={{ once: true, margin: "-10% 0px -10% 0px" }}
                                 variants={imageReveal}
                                 className="relative aspect-[3/4] rounded-[32px] sm:rounded-[48px] overflow-hidden max-w-[280px] sm:max-w-md w-full border-4 border-white shadow-2xl"
                             >
@@ -244,7 +243,8 @@ export default function Home() {
                                     alt="Creative digital experiences"
                                     fill
                                     sizes="(max-width: 1024px) 100vw, 400px"
-                                    className="object-cover transition-transform duration-700 hover:scale-110"
+                                    className="object-cover transition-transform duration-700"
+                                    priority
                                 />
                             </motion.div>
                         </div>
@@ -264,7 +264,7 @@ export default function Home() {
                         <motion.div
                             initial="hidden"
                             whileInView="visible"
-                            viewport={{ once: true, amount: 0.01 }}
+                            viewport={{ once: true }}
                         >
                             <motion.div variants={fadeUp} custom={0} className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-6" style={{ backgroundColor: '#E5DBFF', color: '#6B4EFF' }}>
                                 <span className="text-sm font-bold tracking-wide uppercase">What We Do</span>
@@ -283,8 +283,7 @@ export default function Home() {
                                     key={i}
                                     initial="hidden"
                                     whileInView="visible"
-                                    whileHover={{ y: -8 }}
-                                    viewport={{ once: true, amount: 0.01 }}
+                                    viewport={{ once: true, margin: "-5% 0px -5% 0px" }}
                                     variants={imageReveal}
                                     className="group bg-white rounded-[24px] sm:rounded-[28px] overflow-hidden transition-all duration-500 shadow-[0_4px_20px_rgba(0,0,0,0.06)] hover:shadow-[0_20px_60px_rgba(0,0,0,0.12)] border border-gray-100/80 gpu-accelerated"
                                 >
@@ -370,10 +369,9 @@ export default function Home() {
                             <motion.div
                                 initial="hidden"
                                 whileInView="visible"
-                                whileHover={{ scale: 1.02 }}
-                                viewport={{ once: true, amount: 0.1 }}
+                                viewport={{ once: true, margin: "-10% 0px -10% 0px" }}
                                 variants={imageReveal}
-                                className="relative aspect-[4/3] rounded-[32px] sm:rounded-[48px] overflow-hidden border-8 border-white shadow-2xl bg-white rotate-2 transition-transform duration-700"
+                                className="relative aspect-[4/3] rounded-[48px] overflow-hidden border-8 border-white shadow-2xl bg-white rotate-2 transition-transform duration-700"
                             >
                                 <Image
                                     src="/featured-project-v2.png"
@@ -397,7 +395,7 @@ export default function Home() {
                         <motion.div
                             initial="hidden"
                             whileInView="visible"
-                            viewport={{ once: true, amount: 0.01 }}
+                            viewport={{ once: true }}
                             className="text-center mb-8 space-y-6 flex flex-col items-center"
                         >
                             <motion.div variants={fadeUp} custom={0} className="inline-flex items-center gap-2 px-4 py-2 rounded-full mb-2" style={{ backgroundColor: '#FFD6E8', color: '#FF4D85' }}>
@@ -412,10 +410,10 @@ export default function Home() {
                 </div>
                 {/* CircularGallery — full width, tall container for big cards */}
                 <motion.div
-                    initial={{ opacity: 0, scale: 0.98 }}
+                    initial={{ opacity: 0, scale: 0.95 }}
                     whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true, amount: 0.05 }}
-                    transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+                    viewport={{ once: true, amount: 0.2 }}
+                    transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
                     className="w-full h-[400px] sm:h-[500px] md:h-[600px] relative mt-10"
                 >
                     <CircularGallery
@@ -592,14 +590,14 @@ export default function Home() {
                             src="/videos/explore-bg.mp4"
                             initial="hidden"
                             whileInView="visible"
-                            viewport={{ once: true, amount: 0.1 }}
+                            viewport={{ once: true, amount: 0.2 }}
                             variants={imageReveal}
                             autoPlay
                             muted
                             loop
                             playsInline
                             className="absolute inset-0 w-full h-full object-cover rounded-[24px] shadow-2xl bg-black"
-                            style={{ transform: 'scale(1.0)', transition: 'transform 0.5s ease-out' }}
+                            style={{ transform: 'scale(0.9)', transition: 'transform 0.5s ease-out' }}
                         />
                         {/* Shadow overlay so text pops safely */}
                         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent pointer-events-none" />
