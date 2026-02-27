@@ -152,12 +152,14 @@ class Media {
         void main() {
           vUv = uv;
           vec3 p = position;
-          p.z = (sin(p.x * 4.0 + uTime) * 1.5 + cos(p.y * 2.0 + uTime) * 1.5) * (0.1 + uSpeed * 0.5);
+          // Simplified wave for mobile performance
+          float wave = sin(p.x * 2.0 + uTime) * (0.05 + uSpeed * 0.2);
+          p.z = wave;
           gl_Position = projectionMatrix * modelViewMatrix * vec4(p, 1.0);
         }
       `,
             fragment: `
-        precision highp float;
+        precision mediump float;
         uniform vec2 uImageSizes;
         uniform vec2 uPlaneSizes;
         uniform sampler2D tMap;
@@ -182,7 +184,7 @@ class Media {
           
           float d = roundedBoxSDF(vUv - 0.5, vec2(0.5 - uBorderRadius), uBorderRadius);
           
-          float edgeSmooth = 0.002;
+          float edgeSmooth = 0.005;
           float alpha = 1.0 - smoothstep(-edgeSmooth, edgeSmooth, d);
           
           gl_FragColor = vec4(color.rgb, alpha);
@@ -223,7 +225,7 @@ class Media {
             fontFamily: this.font
         });
     }
-    update(scroll, direction) {
+    update(scroll, direction, uTime) {
         this.plane.position.x = this.x - scroll.current - this.extra;
 
         const x = this.plane.position.x;
@@ -248,8 +250,8 @@ class Media {
         }
 
         this.speed = scroll.current - scroll.last;
-        this.program.uniforms.uTime.value += 0.04;
         this.program.uniforms.uSpeed.value = this.speed;
+        this.program.uniforms.uTime.value = uTime;
 
         const planeOffset = this.plane.scale.x / 2;
         const viewportOffset = this.viewport.width / 2;
@@ -332,8 +334,8 @@ class App {
     createGeometry() {
         const isMobile = window.innerWidth < 768;
         this.planeGeometry = new Plane(this.gl, {
-            heightSegments: isMobile ? 3 : 5,
-            widthSegments: isMobile ? 6 : 10
+            heightSegments: isMobile ? 2 : 5,
+            widthSegments: isMobile ? 4 : 10
         });
     }
     createMedias(items, bend = 1, textColor, borderRadius, font) {
@@ -380,7 +382,9 @@ class App {
     onTouchMove(e) {
         if (!this.isDown) return;
         const x = e.touches ? e.touches[0].clientX : e.clientX;
-        const distance = (this.start - x) * (this.scrollSpeed * 0.025);
+        const isMobile = window.innerWidth < 768;
+        const sensitivity = isMobile ? this.scrollSpeed * 0.12 : this.scrollSpeed * 0.025;
+        const distance = (this.start - x) * sensitivity;
         this.scroll.target = this.scroll.position + distance;
     }
     onTouchUp() {
@@ -419,8 +423,9 @@ class App {
     update() {
         this.scroll.current = lerp(this.scroll.current, this.scroll.target, this.scroll.ease);
         const direction = this.scroll.current > this.scroll.last ? 'right' : 'left';
+        this.uTime = (this.uTime || 0) + 0.04;
         if (this.medias) {
-            this.medias.forEach(media => media.update(this.scroll, direction));
+            this.medias.forEach(media => media.update(this.scroll, direction, this.uTime));
         }
         this.renderer.render({ scene: this.scene, camera: this.camera });
         this.scroll.last = this.scroll.current;

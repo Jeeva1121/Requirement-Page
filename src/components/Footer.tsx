@@ -61,8 +61,8 @@ export default function Footer() {
                         </ul>
                     </div>
 
-                    {/* Company Links */}
-                    <div className="lg:col-span-2 space-y-5">
+                    {/* Company Links - Hidden on mobile */}
+                    <div className="lg:col-span-2 space-y-5 hidden md:block">
                         <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-white/30">Company</h4>
                         <ul className="space-y-3">
                             {["About Us", "Our Team", "Careers", "Privacy Policy"].map((name) => (
@@ -75,8 +75,8 @@ export default function Footer() {
                         </ul>
                     </div>
 
-                    {/* Resources Links */}
-                    <div className="lg:col-span-3 space-y-5">
+                    {/* Resources Links - Hidden on mobile */}
+                    <div className="lg:col-span-3 space-y-5 hidden md:block">
                         <h4 className="text-xs font-bold uppercase tracking-[0.2em] text-white/30">Resources</h4>
                         <ul className="space-y-3">
                             {["Case Studies", "Documentation", "Design System", "Support"].map((name) => (
