@@ -12,12 +12,12 @@ import { ArrowRight, Send, Globe, Brain, Box } from "lucide-react";
 
 // Portfolio items for CircularGallery
 const portfolioGalleryItems = [
-    { image: "https://images.unsplash.com/photo-1547658719-da2b51169166?q=80&w=2564&auto=format&fit=crop", text: "Web Design" },
-    { image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=2670&auto=format&fit=crop", text: "Mobile Apps" },
-    { image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2670&auto=format&fit=crop", text: "Dashboards" },
-    { image: "https://images.unsplash.com/photo-1634942537034-2531766767d1?q=80&w=2670&auto=format&fit=crop", text: "Branding" },
-    { image: "https://images.unsplash.com/photo-1558655146-d09347e92766?q=80&w=2670&auto=format&fit=crop", text: "UX Design" },
-    { image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2426&auto=format&fit=crop", text: "SaaS" },
+    { image: "https://images.unsplash.com/photo-1547658719-da2b51169166?q=80&w=800&auto=format&fit=crop", text: "Web Design" },
+    { image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=800&auto=format&fit=crop", text: "Mobile Apps" },
+    { image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop", text: "Dashboards" },
+    { image: "https://images.unsplash.com/photo-1634942537034-2531766767d1?q=80&w=800&auto=format&fit=crop", text: "Branding" },
+    { image: "https://images.unsplash.com/photo-1558655146-d09347e92766?q=80&w=800&auto=format&fit=crop", text: "UX Design" },
+    { image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop", text: "SaaS" },
 ];
 
 const services = [
