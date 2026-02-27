@@ -13,11 +13,11 @@ export default function Footer() {
         <footer className="relative overflow-hidden bg-[#1A1A1A] text-white" role="contentinfo">
 
             {/* Main Footer Content */}
-            <div className="max-w-7xl mx-auto px-6 lg:px-12 pt-10 sm:pt-16 pb-8 sm:pb-10">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 sm:gap-12 lg:gap-8">
+            <div className="max-w-7xl mx-auto px-4 lg:px-12 pt-6 sm:pt-16 pb-4 sm:pb-10">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-5 sm:gap-12 lg:gap-8">
 
                     {/* Brand Column */}
-                    <div className="lg:col-span-5 space-y-6">
+                    <div className="lg:col-span-5 space-y-4 sm:space-y-6">
                         <div className="flex items-center gap-3">
                             <div className="w-11 h-11 flex items-center justify-center font-bold text-lg rounded-[14px] bg-white text-[#1A1A1A]">
                                 W
@@ -92,7 +92,7 @@ export default function Footer() {
                 </div>
 
                 {/* Divider */}
-                <div className="mt-8 sm:mt-12 mb-6 sm:mb-8 h-px bg-white/10" />
+                <div className="mt-6 sm:mt-12 mb-4 sm:mb-8 h-px bg-white/10" />
 
                 {/* Bottom Bar */}
                 <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
