@@ -1,0 +1,198 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700&display=swap');
+
+/* ─── VÉRA Design System ─── */
+:root {
+  --vera-dark: #1E242C;
+  --vera-beige: #D6CEC2;
+  --vera-cream: #F4F3EF;
+  --vera-steel: #6E7A85;
+  --vera-blue: #A2B4C8;
+  --vera-white: #FDFCFB;
+  --vera-separator: #E0DDD4;
+  --radius-soft: 16px;
+  --radius-card: 24px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  color: var(--vera-dark);
+  background: var(--vera-cream);
+  font-family: 'Inter', 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-overflow-scrolling: touch;
+  text-rendering: optimizeLegibility;
+}
+
+.font-serif {
+  font-family: 'Playfair Display', Georgia, serif;
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ─── Performance Optimization ─── */
+.gpu-accelerated {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000;
+  will-change: transform, opacity;
+}
+
+.anim-wrapper {
+  contain: layout paint;
+}
+
+/* ─── Animations ─── */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+/* ─── VÉRA Cards ─── */
+.vera-card {
+  background: white;
+  border: 1px solid var(--vera-separator);
+  border-radius: var(--radius-card);
+  transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.vera-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 24px 48px -12px rgba(30, 36, 44, 0.08);
+  border-color: var(--vera-blue);
+}
+
+/* ─── VÉRA Divider ─── */
+.vera-divider {
+  width: 64px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--vera-steel), var(--vera-blue));
+  border-radius: 2px;
+}
+
+/* ─── Image Hover ─── */
+.vera-image-container {
+  overflow: hidden;
+  border-radius: var(--radius-card);
+}
+
+.vera-image-container img {
+  transition: transform 1.2s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.vera-image-container:hover img {
+  transform: scale(1.05);
+}
+
+/* ─── Selection ─── */
+::selection {
+  background: rgba(162, 180, 200, 0.25);
+  color: var(--vera-dark);
+}
+
+/* ─── Scrollbar ─── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--vera-beige);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--vera-steel);
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
