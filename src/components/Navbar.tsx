@@ -93,7 +93,7 @@ export default function Navbar() {
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -12 }}
                         transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-                        className="md:hidden px-6 py-10 flex flex-col gap-6 bg-white/95"
+                        className="md:hidden px-6 py-5 flex flex-col gap-3.5 bg-white/95 backdrop-blur-md"
                         style={{ borderTop: '1px solid rgba(0,0,0,0.06)' }}
                         role="navigation"
                     >
@@ -102,7 +102,7 @@ export default function Navbar() {
                                 key={item}
                                 href={item === "Contact" ? "#requirements" : `#${item.toLowerCase()}`}
                                 onClick={() => setOpen(false)}
-                                className="text-lg font-bold py-2 text-[#1A1A1A] border-b border-gray-100"
+                                className="text-base font-bold py-1.5 text-[#1A1A1A]"
                             >
                                 {item}
                             </a>
@@ -110,7 +110,7 @@ export default function Navbar() {
                         <a
                             href="#requirements"
                             onClick={() => setOpen(false)}
-                            className="mt-4 px-8 py-4 text-base font-bold rounded-[14px] text-center bg-[#1A1A1A] text-white"
+                            className="mt-2 px-2 py-3.5 max-w-[180px] mx-auto w-full text-sm font-bold rounded-full text-center bg-[#1A1A1A] text-white"
                         >
                             Start a Project
                         </a>
