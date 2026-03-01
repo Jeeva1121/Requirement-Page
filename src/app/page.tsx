@@ -328,12 +328,12 @@ export default function Home() {
                             whileHover={{ y: -5, scale: 1.02 }}
                             whileTap={{ scale: 0.98 }}
                             href="#requirements"
-                            className="group inline-flex items-center justify-center sm:justify-start gap-3.5 px-5 sm:pl-7 sm:pr-2 py-3 sm:py-2.5 bg-white text-[#1A1A1A] font-bold rounded-full hover:bg-gray-100 transition-all hover:shadow-xl shadow-[0_8px_30px_rgba(255,255,255,0.15)] whitespace-nowrap"
+                            className="group inline-flex items-center justify-center sm:justify-start gap-3 px-4 sm:pl-7 sm:pr-2 py-2.5 sm:py-2.5 bg-white text-[#1A1A1A] font-bold rounded-full hover:bg-gray-100 transition-all hover:shadow-xl shadow-[0_8px_30px_rgba(255,255,255,0.15)] whitespace-nowrap"
                         >
                             <span className="text-[14px] sm:text-[16px]">Start Project</span>
                             <motion.span
                                 whileHover={{ rotate: -35 }}
-                                className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#1A1A1A] flex items-center justify-center transition-transform shrink-0"
+                                className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-[#1A1A1A] flex items-center justify-center transition-transform shrink-0"
                             >
                                 <ArrowRight className="w-4 h-4 text-white" />
                             </motion.span>
@@ -342,12 +342,12 @@ export default function Home() {
                             whileHover={{ y: -5, scale: 1.02 }}
                             whileTap={{ scale: 0.98 }}
                             href="#portfolio"
-                            className="group inline-flex items-center justify-center sm:justify-start gap-3.5 px-5 sm:pl-7 sm:pr-2 py-3 sm:py-2.5 bg-white/10 backdrop-blur-md text-white font-bold rounded-full border border-white/20 hover:bg-white/20 transition-all text-center whitespace-nowrap"
+                            className="group inline-flex items-center justify-center sm:justify-start gap-3 px-4 sm:pl-7 sm:pr-2 py-2.5 sm:py-2.5 bg-white/10 backdrop-blur-md text-white font-bold rounded-full border border-white/20 hover:bg-white/20 transition-all text-center whitespace-nowrap"
                         >
                             <span className="text-[14px] sm:text-[16px]">Portfolio</span>
                             <motion.span
                                 whileHover={{ rotate: -35 }}
-                                className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/20 flex items-center justify-center transition-transform shrink-0"
+                                className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white/20 flex items-center justify-center transition-transform shrink-0"
                             >
                                 <ArrowRight className="w-4 h-4 text-white" />
                             </motion.span>
@@ -798,10 +798,10 @@ export default function Home() {
                                 whileHover={{ scale: 1.05, y: -2 }}
                                 whileTap={{ scale: 0.95 }}
                                 href="/contact"
-                                className="group inline-flex items-center gap-3.5 pl-7 pr-2 py-2.5 bg-[#1A1A1A] text-white font-bold rounded-full hover:shadow-[0_20px_40px_rgba(0,0,0,0.2)] transition-all"
+                                className="group inline-flex items-center gap-2.5 pl-5 pr-1.5 py-1.5 bg-[#1A1A1A] text-white font-bold rounded-full hover:shadow-[0_20px_40px_rgba(0,0,0,0.2)] transition-all"
                             >
-                                <span className="text-[14px] sm:text-[16px] uppercase tracking-widest">Get Started</span>
-                                <span className="w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-white flex items-center justify-center transition-transform group-hover:rotate-[-45deg]">
+                                <span className="text-[13px] sm:text-[16px] uppercase tracking-widest">Get Started</span>
+                                <span className="w-8 h-8 sm:w-11 sm:h-11 rounded-full bg-white flex items-center justify-center transition-transform group-hover:rotate-[-45deg]">
                                     <ArrowRight className="w-4 h-4 sm:w-6 sm:h-6 text-[#1A1A1A]" />
                                 </span>
                             </motion.a>

@@ -37,7 +37,7 @@ export default function Navbar() {
                 : { backgroundColor: 'rgba(255,255,255,0.5)' }
             }
         >
-            <div className="max-w-7xl mx-auto px-6 lg:px-12 py-3 sm:py-3 flex justify-between items-center">
+            <div className="max-w-7xl mx-auto px-6 lg:px-12 py-2 sm:py-3 flex justify-between items-center">
                 <a href="/" className="flex items-center gap-2.5 sm:gap-3 group" aria-label="WebCraft Home">
                     <div className="w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center font-bold text-base sm:text-lg rounded-[12px] sm:rounded-[14px] bg-[#1A1A1A] text-white shadow-sm">
                         W
