@@ -75,11 +75,11 @@ const ContactForm = () => {
                         setSubmitted(false);
                         setStep(1);
                     }}
-                    className="mt-12 group inline-flex items-center gap-3 pl-8 pr-2 py-2 bg-[#6B4EFF] text-white font-bold rounded-full hover:shadow-[0_10px_30px_rgba(107,78,255,0.3)] transition-all"
+                    className="mt-12 group inline-flex items-center gap-3 pl-7 pr-1.5 py-1.5 bg-[#6B4EFF] text-white font-bold rounded-full hover:shadow-[0_10px_30px_rgba(107,78,255,0.3)] transition-all"
                 >
                     <span className="text-[14px] uppercase tracking-widest">Submit another</span>
-                    <span className="w-10 h-10 rounded-full bg-white flex items-center justify-center transition-transform group-hover:rotate-[-45deg]">
-                        <ArrowRight className="w-5 h-5 text-[#6B4EFF]" />
+                    <span className="w-9 h-9 rounded-full bg-white flex items-center justify-center transition-transform group-hover:rotate-[-45deg]">
+                        <ArrowRight className="w-4 h-4 text-[#6B4EFF]" />
                     </span>
                 </motion.button>
             </motion.div>
@@ -299,10 +299,10 @@ const ContactForm = () => {
                         whileTap={{ scale: 0.98 }}
                         type="button"
                         onClick={handleFinalSubmit}
-                        className="group inline-flex items-center gap-3 pl-10 pr-2 py-2 bg-[#F59E0B] text-white font-bold rounded-full shadow-[0_20px_40px_rgba(245,158,11,0.3)] transition-all"
+                        className="group inline-flex items-center gap-3 pl-8 pr-1.5 py-1.5 bg-[#F59E0B] text-white font-bold rounded-full shadow-[0_20px_40px_rgba(245,158,11,0.3)] transition-all"
                     >
                         <span className="text-[12px] sm:text-[14px] uppercase tracking-[0.15em]">Send Now</span>
-                        <span className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white flex items-center justify-center transition-transform group-hover:rotate-[-45deg]">
+                        <span className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white flex items-center justify-center transition-transform group-hover:rotate-[-45deg]">
                             <Rocket className="w-4 h-4 sm:w-5 sm:h-5 text-[#F59E0B]" />
                         </span>
                     </motion.button>

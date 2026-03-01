@@ -386,11 +386,11 @@ export default function Home() {
                             <motion.div variants={fadeUp} custom={3}>
                                 <a
                                     href="#requirements"
-                                    className="group inline-flex items-center gap-1.5 sm:gap-3 pl-5 sm:pl-8 pr-1.5 sm:pr-2 py-1 sm:py-2 bg-[#FF9F1C] text-white font-bold rounded-full hover:bg-[#E88D0C] transition-all"
+                                    className="group inline-flex items-center gap-1.5 sm:gap-3 pl-5 sm:pl-8 pr-1.5 sm:pr-2 py-2 sm:py-2 bg-[#FF9F1C] text-white font-bold rounded-full hover:bg-[#E88D0C] transition-all"
                                 >
                                     <span className="text-[13px] sm:text-[16px]">Learn More</span>
-                                    <span className="w-7 h-7 sm:w-10 sm:h-10 rounded-full bg-white flex items-center justify-center transition-transform group-hover:rotate-[-35deg]">
-                                        <ArrowRight className="w-3.5 h-3.5 sm:w-5 sm:h-5 text-[#FF9F1C]" />
+                                    <span className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white flex items-center justify-center transition-transform group-hover:rotate-[-35deg]">
+                                        <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 text-[#FF9F1C]" />
                                     </span>
                                 </a>
                             </motion.div>
@@ -531,11 +531,11 @@ export default function Home() {
                                 variants={fadeUp}
                                 custom={3}
                                 href="#requirements"
-                                className="group inline-flex items-center gap-1.5 sm:gap-3 pl-5 sm:pl-8 pr-1.5 sm:pr-2 py-1 sm:py-2 bg-[#0096C7] text-white font-bold rounded-full hover:bg-[#0080AB] transition-all"
+                                className="group inline-flex items-center gap-1.5 sm:gap-3 pl-5 sm:pl-8 pr-1.5 sm:pr-2 py-2 sm:py-2 bg-[#0096C7] text-white font-bold rounded-full hover:bg-[#0080AB] transition-all"
                             >
                                 <span className="text-[13px] sm:text-[16px]">Read Case Study</span>
-                                <span className="w-7 h-7 sm:w-10 sm:h-10 rounded-full bg-white flex items-center justify-center transition-transform group-hover:rotate-[-35deg]">
-                                    <ArrowRight className="w-3.5 h-3.5 sm:w-5 sm:h-5 text-[#0096C7]" />
+                                <span className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white flex items-center justify-center transition-transform group-hover:rotate-[-35deg]">
+                                    <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 text-[#0096C7]" />
                                 </span>
                             </motion.a>
                         </motion.div>
