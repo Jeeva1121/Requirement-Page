@@ -285,12 +285,12 @@ const ContactForm = () => {
                         whileTap={{ scale: 0.98 }}
                         type="button"
                         onClick={goNext}
-                        className={`group inline-flex items-center gap-3 pl-8 pr-2 py-2 text-white font-bold rounded-full shadow-lg transition-all ${step === 1 ? 'bg-[#6B4EFF] hover:shadow-[0_10px_30px_rgba(107,78,255,0.3)]' : 'bg-[#FF4D85] hover:shadow-[0_10px_30px_rgba(255,77,133,0.3)]'
+                        className={`group inline-flex items-center gap-2.5 sm:gap-3 pl-6 sm:pl-8 pr-1.5 sm:pr-2 py-1.5 sm:py-2 text-white font-bold rounded-full shadow-lg transition-all ${step === 1 ? 'bg-[#6B4EFF] hover:shadow-[0_10px_30px_rgba(107,78,255,0.3)]' : 'bg-[#FF4D85] hover:shadow-[0_10px_30px_rgba(255,77,133,0.3)]'
                             }`}
                     >
-                        <span className="text-[12px] sm:text-[14px] uppercase tracking-[0.15em]">Next Step</span>
-                        <span className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white flex items-center justify-center transition-transform group-hover:translate-x-1">
-                            <ArrowRight className={`w-4 h-4 sm:w-5 sm:h-5 ${step === 1 ? 'text-[#6B4EFF]' : 'text-[#FF4D85]'}`} />
+                        <span className="text-[12px] sm:text-[14px] uppercase tracking-[0.1em] sm:tracking-[0.15em]">Next Step</span>
+                        <span className="w-8 h-8 sm:w-11 sm:h-11 rounded-full bg-white flex items-center justify-center transition-transform group-hover:translate-x-1">
+                            <ArrowRight className={`w-3.5 h-3.5 sm:w-5 sm:h-5 ${step === 1 ? 'text-[#6B4EFF]' : 'text-[#FF4D85]'}`} />
                         </span>
                     </motion.button>
                 ) : (
@@ -325,9 +325,9 @@ export default function ContactPage() {
 
             {/* Contact Hero Area */}
             <section className="pt-16 sm:pt-24 pb-8 sm:pb-12 px-4 sm:px-6 bg-white border-b border-gray-100 relative">
-                <div className="max-w-7xl mx-auto flex flex-col items-center justify-center relative min-h-[100px] sm:min-h-[120px]">
-                    {/* Back Button – absolutely positioned on desktop so text stays centered */}
-                    <div className="w-full md:absolute md:left-0 md:top-0 flex justify-start md:justify-start mb-4 md:mb-0 px-1 sm:px-4 md:px-0">
+                {/* Back Button & Title Area */}
+                <div className="w-full flex flex-col md:flex-row items-center justify-center gap-4 sm:gap-0">
+                    <div className="w-full md:absolute md:left-0 md:top-16 flex justify-start px-1 sm:px-4 md:px-0">
                         <motion.a
                             href="/"
                             onClick={handleBackHome}
@@ -335,27 +335,27 @@ export default function ContactPage() {
                             animate={{ opacity: 1, x: 0 }}
                             whileHover={{ scale: 1.1, x: -5 }}
                             whileTap={{ scale: 0.9 }}
-                            className="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center bg-[#6B4EFF] rounded-full text-white shadow-[0_10px_30px_rgba(107,78,255,0.3)] transition-all group active:scale-95 ml-2 md:ml-16 mt-2 md:mt-0"
+                            className="w-8 h-8 sm:w-12 sm:h-12 flex items-center justify-center bg-[#6B4EFF] rounded-full text-white shadow-[0_10px_30px_rgba(107,78,255,0.3)] transition-all group active:scale-95 ml-2 md:ml-44 mt-8 md:mt-8"
                             title="Back to Home"
                         >
-                            <ArrowLeft className="w-4 h-4 sm:w-5 sm:h-5 transition-transform group-hover:-translate-x-1" />
+                            <ArrowLeft className="w-3.5 h-3.5 sm:w-5 sm:h-5 transition-transform group-hover:-translate-x-1" />
                         </motion.a>
                     </div>
 
-                    <div className="text-center max-w-2xl">
+                    <div className="text-center max-w-2xl mt-0 md:mt-0">
                         <motion.h1
-                            initial={{ opacity: 0, y: 20 }}
+                            initial={{ opacity: 0, y: 10 }}
                             animate={{ opacity: 1, y: 0 }}
-                            className="text-4xl sm:text-5xl md:text-7xl font-black text-[#1A1A1A] tracking-tighter"
+                            className="text-3xl sm:text-5xl md:text-7xl font-black text-[#1A1A1A] tracking-tighter"
                             style={{ fontFamily: 'var(--font-sans)', lineHeight: '1.1' }}
                         >
                             GET IN <span className="text-[#6B4EFF]" style={{ fontFamily: 'var(--font-caveat)', fontWeight: 'normal' }}>TOUCH</span>
                         </motion.h1>
                         <motion.p
-                            initial={{ opacity: 0, y: 20 }}
+                            initial={{ opacity: 0, y: 10 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.1 }}
-                            className="text-[#64748B] text-base sm:text-lg mt-2 sm:mt-3 font-medium leading-relaxed"
+                            className="text-[#64748B] text-sm sm:text-lg mt-1 sm:mt-3 font-medium leading-relaxed max-w-[280px] sm:max-w-none mx-auto"
                         >
                             We've simplified our portal so you can share your vision in seconds.
                         </motion.p>

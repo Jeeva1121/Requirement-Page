@@ -386,11 +386,11 @@ export default function Home() {
                             <motion.div variants={fadeUp} custom={3}>
                                 <a
                                     href="#requirements"
-                                    className="group inline-flex items-center gap-3 pl-8 pr-2 py-2 bg-[#FF9F1C] text-white font-bold rounded-full hover:bg-[#E88D0C] transition-all hover:-translate-y-1 hover:shadow-xl shadow-[0_8px_30px_rgba(255,159,28,0.35)]"
+                                    className="group inline-flex items-center gap-1.5 sm:gap-3 pl-5 sm:pl-8 pr-1.5 sm:pr-2 py-1 sm:py-2 bg-[#FF9F1C] text-white font-bold rounded-full hover:bg-[#E88D0C] transition-all"
                                 >
-                                    <span className="text-[16px]">Learn More</span>
-                                    <span className="w-10 h-10 rounded-full bg-white flex items-center justify-center transition-transform group-hover:rotate-[-35deg]">
-                                        <ArrowRight className="w-5 h-5 text-[#FF9F1C]" />
+                                    <span className="text-[13px] sm:text-[16px]">Learn More</span>
+                                    <span className="w-7 h-7 sm:w-10 sm:h-10 rounded-full bg-white flex items-center justify-center transition-transform group-hover:rotate-[-35deg]">
+                                        <ArrowRight className="w-3.5 h-3.5 sm:w-5 sm:h-5 text-[#FF9F1C]" />
                                     </span>
                                 </a>
                             </motion.div>
@@ -465,14 +465,14 @@ export default function Home() {
                                 >
                                     {/* Image Container */}
                                     <div
-                                        className="relative h-[160px] sm:h-[200px] overflow-hidden m-2 sm:m-3 rounded-[16px] sm:rounded-[20px]"
+                                        className="relative h-[240px] sm:h-[200px] overflow-hidden m-2 sm:m-3 rounded-[16px] sm:rounded-[20px]"
                                     >
                                         <Image
                                             src={service.image}
                                             alt={service.title}
                                             fill
                                             sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                                            className="object-cover transition-transform duration-700 group-hover:scale-110"
+                                            className="object-cover scale-90 sm:scale-100 transition-transform duration-700 group-hover:scale-110"
                                             style={i === 3 ? { objectPosition: 'center 20%' } : undefined}
                                         />
                                     </div>
@@ -531,11 +531,11 @@ export default function Home() {
                                 variants={fadeUp}
                                 custom={3}
                                 href="#requirements"
-                                className="group inline-flex items-center gap-3 pl-8 pr-2 py-2 bg-[#0096C7] text-white font-bold rounded-full hover:bg-[#0080AB] transition-all hover:-translate-y-1 hover:shadow-xl shadow-[0_8px_30px_rgba(0,150,199,0.35)]"
+                                className="group inline-flex items-center gap-1.5 sm:gap-3 pl-5 sm:pl-8 pr-1.5 sm:pr-2 py-1 sm:py-2 bg-[#0096C7] text-white font-bold rounded-full hover:bg-[#0080AB] transition-all"
                             >
-                                <span className="text-[16px]">Read Case Study</span>
-                                <span className="w-10 h-10 rounded-full bg-white flex items-center justify-center transition-transform group-hover:rotate-[-35deg]">
-                                    <ArrowRight className="w-5 h-5 text-[#0096C7]" />
+                                <span className="text-[13px] sm:text-[16px]">Read Case Study</span>
+                                <span className="w-7 h-7 sm:w-10 sm:h-10 rounded-full bg-white flex items-center justify-center transition-transform group-hover:rotate-[-35deg]">
+                                    <ArrowRight className="w-3.5 h-3.5 sm:w-5 sm:h-5 text-[#0096C7]" />
                                 </span>
                             </motion.a>
                         </motion.div>
@@ -622,21 +622,6 @@ export default function Home() {
                             <br className="hidden xl:block" />
                             features
                         </motion.h2>
-                        <motion.p variants={fadeUp} custom={1} className="text-lg leading-relaxed max-w-lg" style={{ color: '#666666' }}>
-                            Discover our fun and efficient workflow. We follow an agile methodology—delivering value in every sprint, adapting to feedback, and shipping with confidence.
-                        </motion.p>
-
-                        <motion.div variants={fadeUp} custom={2} className="flex flex-wrap gap-4 pt-4">
-                            <a
-                                href="/contact"
-                                className="group inline-flex items-center gap-2 sm:gap-3 pl-6 sm:pl-8 pr-1.5 sm:pr-2 py-1.5 sm:py-2 bg-[#6B4EFF] text-white font-bold rounded-full hover:bg-[#5A3DE8] transition-all hover:-translate-y-1 hover:shadow-xl shadow-[0_8px_30px_rgba(107,78,255,0.3)]"
-                            >
-                                <span className="text-[14px] sm:text-[16px]">Go To Portal</span>
-                                <span className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white flex items-center justify-center transition-transform group-hover:rotate-[-45deg]">
-                                    <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 text-[#6B4EFF]" />
-                                </span>
-                            </a>
-                        </motion.div>
                     </motion.div>
 
                     {/* Right Cards Grid */}
@@ -652,7 +637,7 @@ export default function Home() {
                         <motion.div
                             variants={fadeUp}
                             custom={0}
-                            className="relative p-6 sm:p-10 rounded-[28px] sm:rounded-[40px] overflow-hidden group min-h-[240px] sm:min-h-[320px] flex flex-col gpu-accelerated"
+                            className="relative p-6 sm:p-10 rounded-[28px] sm:rounded-[40px] overflow-hidden group min-h-[200px] sm:min-h-[320px] flex flex-col gpu-accelerated"
                             style={{ backgroundColor: '#E5DBFF' }}
                         >
                             <div className="absolute -top-12 -right-12 w-48 h-48 rounded-full border-[20px] border-[#D1C0F9] opacity-70" />
@@ -675,7 +660,7 @@ export default function Home() {
                         <motion.div
                             variants={fadeUp}
                             custom={1}
-                            className="relative p-6 sm:p-10 rounded-[28px] sm:rounded-[40px] overflow-hidden group md:translate-y-12 min-h-[240px] sm:min-h-[320px] flex flex-col gpu-accelerated"
+                            className="relative p-6 sm:p-10 rounded-[28px] sm:rounded-[40px] overflow-hidden group md:translate-y-12 min-h-[200px] sm:min-h-[320px] flex flex-col gpu-accelerated"
                             style={{ backgroundColor: '#6B4EFF' }}
                         >
                             <div className="absolute -top-4 -right-4 w-40 h-40 bg-[#8C74FF] rounded-full rotate-12 opacity-80" />
@@ -698,7 +683,7 @@ export default function Home() {
                         <motion.div
                             variants={fadeUp}
                             custom={2}
-                            className="relative p-6 sm:p-10 rounded-[28px] sm:rounded-[40px] overflow-hidden group min-h-[240px] sm:min-h-[320px] flex flex-col mt-4 md:mt-0 gpu-accelerated"
+                            className="relative p-6 sm:p-10 rounded-[28px] sm:rounded-[40px] overflow-hidden group min-h-[200px] sm:min-h-[320px] flex flex-col mt-4 md:mt-0 gpu-accelerated"
                             style={{ backgroundColor: '#FFD166' }}
                         >
                             <div className="absolute top-8 right-8 grid grid-cols-4 gap-3 opacity-30">
@@ -722,7 +707,7 @@ export default function Home() {
                         <motion.div
                             variants={fadeUp}
                             custom={3}
-                            className="relative p-6 sm:p-10 rounded-[28px] sm:rounded-[40px] overflow-hidden group md:translate-y-12 min-h-[240px] sm:min-h-[320px] flex flex-col mt-4 md:mt-0 gpu-accelerated"
+                            className="relative p-6 sm:p-10 rounded-[28px] sm:rounded-[40px] overflow-hidden group md:translate-y-12 min-h-[200px] sm:min-h-[320px] flex flex-col mt-4 md:mt-0 gpu-accelerated"
                             style={{ backgroundColor: '#BEE5FD' }}
                         >
                             <div className="absolute -bottom-10 -right-10 w-48 h-48 bg-[#9BD6FB] rounded-full" />
@@ -810,14 +795,14 @@ export default function Home() {
                                 Our requirement portal is ready. Tell us about your vision and let&apos;s get started.
                             </p>
                             <motion.a
-                                whileHover={{ scale: 1.05, y: -5 }}
+                                whileHover={{ scale: 1.05, y: -2 }}
                                 whileTap={{ scale: 0.95 }}
                                 href="/contact"
-                                className="group inline-flex items-center gap-4 pl-10 pr-2 py-2 bg-[#1A1A1A] text-white font-bold rounded-full hover:shadow-[0_20px_40px_rgba(0,0,0,0.2)] transition-all"
+                                className="group inline-flex items-center gap-2.5 pl-6 pr-1.5 py-1.5 bg-[#1A1A1A] text-white font-bold rounded-full hover:shadow-[0_20px_40px_rgba(0,0,0,0.2)] transition-all"
                             >
-                                <span className="text-[16px] uppercase tracking-widest">Get Started</span>
-                                <span className="w-12 h-12 rounded-full bg-white flex items-center justify-center transition-transform group-hover:rotate-[-45deg]">
-                                    <ArrowRight className="w-6 h-6 text-[#1A1A1A]" />
+                                <span className="text-[13px] sm:text-[16px] uppercase tracking-widest">Get Started</span>
+                                <span className="w-8 h-8 sm:w-11 sm:h-11 rounded-full bg-white flex items-center justify-center transition-transform group-hover:rotate-[-45deg]">
+                                    <ArrowRight className="w-4 h-4 sm:w-6 sm:h-6 text-[#1A1A1A]" />
                                 </span>
                             </motion.a>
                         </div>

@@ -50,7 +50,7 @@ export default function Navbar() {
                     </span>
                 </a>
 
-                <div className="hidden md:flex items-center gap-10 text-sm font-bold tracking-wide uppercase">
+                <div className="hidden md:flex items-center gap-10 text-sm font-bold tracking-wide">
                     {["Services", "Portfolio", "Process", "Contact"].map((item) => (
                         <a
                             key={item}
@@ -66,7 +66,7 @@ export default function Navbar() {
                 <div className="hidden md:flex items-center">
                     <a
                         href="#requirements"
-                        className="group inline-flex items-center gap-2 pl-6 pr-1.5 py-1.5 text-sm font-bold rounded-full bg-[#1A1A1A] text-white hover:bg-[#333] transition-colors btn-lift"
+                        className="group inline-flex items-center gap-2 pl-6 pr-1.5 py-1.5 text-sm font-bold rounded-full bg-[#1A1A1A] text-white hover:bg-[#333] transition-colors"
                     >
                         Start a Project
                         <span className="w-8 h-8 rounded-full bg-white flex items-center justify-center transition-transform group-hover:rotate-[-35deg]">
@@ -89,11 +89,11 @@ export default function Navbar() {
             <AnimatePresence>
                 {open && (
                     <motion.div
-                        initial={{ opacity: 0, y: -12 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -12 }}
-                        transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-                        className="md:hidden px-6 py-5 flex flex-col gap-3.5 bg-white/95 backdrop-blur-md"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 0.2 }}
+                        className="md:hidden px-6 py-5 flex flex-col gap-3.5 bg-white shadow-xl z-50"
                         style={{ borderTop: '1px solid rgba(0,0,0,0.06)' }}
                         role="navigation"
                     >
@@ -117,6 +117,6 @@ export default function Navbar() {
                     </motion.div>
                 )}
             </AnimatePresence>
-        </motion.nav>
+        </motion.nav >
     );
 }

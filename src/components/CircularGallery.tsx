@@ -246,11 +246,10 @@ class App {
         this.addEventListeners();
     }
     createRenderer() {
-        const isMobile = window.innerWidth < 768;
         this.renderer = new Renderer({
             alpha: true,
-            antialias: !isMobile,
-            dpr: isMobile ? 1 : Math.min(window.devicePixelRatio || 1, 2)
+            antialias: true,
+            dpr: Math.min(window.devicePixelRatio || 1, 2)
         });
         this.gl = this.renderer.gl;
         this.gl.clearColor(0, 0, 0, 0);
