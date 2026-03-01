@@ -10,6 +10,12 @@ export default function LoadingScreen() {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
+        const skip = sessionStorage.getItem("skip-loading-screen");
+        if (skip) {
+            setLoading(false);
+            sessionStorage.removeItem("skip-loading-screen");
+            return;
+        }
         const timeout = setTimeout(() => setLoading(false), 1800);
         return () => clearTimeout(timeout);
     }, []);

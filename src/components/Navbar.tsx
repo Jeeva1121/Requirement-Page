@@ -100,7 +100,7 @@ export default function Navbar() {
                         {["Services", "Portfolio", "Process", "Contact"].map((item) => (
                             <a
                                 key={item}
-                                href={item === "Contact" ? "#requirements" : `#${item.toLowerCase()}`}
+                                href={item === "Contact" ? "/contact" : `#${item.toLowerCase()}`}
                                 onClick={() => setOpen(false)}
                                 className="text-base font-bold py-1.5 text-[#1A1A1A]"
                             >

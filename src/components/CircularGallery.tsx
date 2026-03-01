@@ -27,75 +27,7 @@ function autoBind(instance) {
     });
 }
 
-function createTextTexture(gl, text, font = 'bold 30px monospace', color = 'black') {
-    const canvas = document.createElement('canvas');
-    const context = canvas.getContext('2d');
-    context.font = font;
-    const metrics = context.measureText(text);
-    const textWidth = Math.ceil(metrics.width);
-    const textHeight = Math.ceil(parseInt(font, 10) * 1.2);
-    canvas.width = textWidth + 20;
-    canvas.height = textHeight + 20;
-    context.font = font;
-    context.fillStyle = color;
-    context.textBaseline = 'middle';
-    context.textAlign = 'center';
-    context.clearRect(0, 0, canvas.width, canvas.height);
-    context.fillText(text, canvas.width / 2, canvas.height / 2);
-    const texture = new Texture(gl, { generateMipmaps: false });
-    texture.image = canvas;
-    return { texture, width: canvas.width, height: canvas.height };
-}
-
-class Title {
-    constructor({ gl, plane, renderer, text, textColor = '#545050', font = '30px sans-serif' }) {
-        autoBind(this);
-        this.gl = gl;
-        this.plane = plane;
-        this.renderer = renderer;
-        this.text = text;
-        this.textColor = textColor;
-        this.font = font;
-        this.createMesh();
-    }
-    createMesh() {
-        const { texture, width, height } = createTextTexture(this.gl, this.text, this.font, this.textColor);
-        const geometry = new Plane(this.gl);
-        const program = new Program(this.gl, {
-            vertex: `
-        attribute vec3 position;
-        attribute vec2 uv;
-        uniform mat4 modelViewMatrix;
-        uniform mat4 projectionMatrix;
-        varying vec2 vUv;
-        void main() {
-          vUv = uv;
-          gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
-        }
-      `,
-            fragment: `
-        precision highp float;
-        uniform sampler2D tMap;
-        varying vec2 vUv;
-        void main() {
-          vec4 color = texture2D(tMap, vUv);
-          if (color.a < 0.1) discard;
-          gl_FragColor = color;
-        }
-      `,
-            uniforms: { tMap: { value: texture } },
-            transparent: true
-        });
-        this.mesh = new Mesh(this.gl, { geometry, program });
-        const aspect = width / height;
-        const textHeight = this.plane.scale.y * 0.15;
-        const textWidth = textHeight * aspect;
-        this.mesh.scale.set(textWidth, textHeight, 1);
-        this.mesh.position.y = -this.plane.scale.y * 0.5 - textHeight * 0.5 - 0.05;
-        this.mesh.setParent(this.plane);
-    }
-}
-
+// Media class represents each gallery item
 class Media {
     constructor({
         geometry,
@@ -111,6 +43,7 @@ class Media {
         bend,
         textColor,
         borderRadius = 0,
+        edgeSmooth = 0.002,
         font
     }) {
         this.extra = 0;
@@ -127,10 +60,11 @@ class Media {
         this.bend = bend;
         this.textColor = textColor;
         this.borderRadius = borderRadius;
+        this.edgeSmooth = edgeSmooth;
         this.font = font;
         this.createShader();
         this.createMesh();
-        this.createTitle();
+        // Title text removed — clean card-only layout
         this.onResize();
     }
     createShader() {
@@ -163,6 +97,7 @@ class Media {
         uniform vec2 uPlaneSizes;
         uniform sampler2D tMap;
         uniform float uBorderRadius;
+        uniform float uEdgeSmooth;
         varying vec2 vUv;
         
         float roundedBoxSDF(vec2 p, vec2 b, float r) {
@@ -183,8 +118,7 @@ class Media {
           
           float d = roundedBoxSDF(vUv - 0.5, vec2(0.5 - uBorderRadius), uBorderRadius);
           
-          float edgeSmooth = 0.002;
-          float alpha = 1.0 - smoothstep(-edgeSmooth, edgeSmooth, d);
+          float alpha = 1.0 - smoothstep(-uEdgeSmooth, uEdgeSmooth, d);
           
           gl_FragColor = vec4(color.rgb, alpha);
         }
@@ -195,7 +129,8 @@ class Media {
                 uImageSizes: { value: [0, 0] },
                 uSpeed: { value: 0 },
                 uTime: { value: 100 * Math.random() },
-                uBorderRadius: { value: this.borderRadius }
+                uBorderRadius: { value: this.borderRadius },
+                uEdgeSmooth: { value: this.edgeSmooth }
             },
             transparent: true
         });
@@ -214,16 +149,7 @@ class Media {
         });
         this.plane.setParent(this.scene);
     }
-    createTitle() {
-        this.title = new Title({
-            gl: this.gl,
-            plane: this.plane,
-            renderer: this.renderer,
-            text: this.text,
-            textColor: this.textColor,
-            fontFamily: this.font
-        });
-    }
+    // Title rendering removed — maintaining clean card UI
     update(scroll, direction) {
         this.plane.position.x = this.x - scroll.current - this.extra;
 
@@ -292,6 +218,7 @@ class App {
             bend,
             textColor = '#ffffff',
             borderRadius = 0,
+            edgeSmooth = 0.002,
             font = 'bold 30px Figtree',
             scrollSpeed = 2,
             scrollEase = 0.12
@@ -304,12 +231,17 @@ class App {
         this.lastScrollY = 0;
         this.autoRoll = true;
         this.onCheckDebounce = debounce(this.onCheck, 200);
+        this.textColor = textColor;
+        this.borderRadius = borderRadius;
+        this.edgeSmooth = edgeSmooth;
+        this.font = font;
+
         this.createRenderer();
         this.createCamera();
         this.createScene();
         this.onResize();
         this.createGeometry();
-        this.createMedias(items, bend, textColor, borderRadius, font);
+        this.createMedias(items, bend, this.textColor, this.borderRadius, this.font, this.edgeSmooth);
         this.update();
         this.addEventListeners();
     }
@@ -339,7 +271,7 @@ class App {
             widthSegments: 2
         });
     }
-    createMedias(items, bend = 1, textColor, borderRadius, font) {
+    createMedias(items, bend = 1, textColor, borderRadius, font, edgeSmooth) {
         const defaultItems = [
             { image: `https://picsum.photos/seed/1/800/600?grayscale`, text: 'Bridge' },
             { image: `https://picsum.photos/seed/2/800/600?grayscale`, text: 'Desk Setup' },
@@ -371,6 +303,7 @@ class App {
                 bend,
                 textColor,
                 borderRadius,
+                edgeSmooth,
                 font
             });
         });
@@ -477,30 +410,34 @@ class App {
     }
 }
 
+export interface CircularGalleryProps {
+    items?: { image: string; text?: string }[];
+    bend?: number;
+    textColor?: string;
+    borderRadius?: number;
+    edgeSmooth?: number;
+    font?: string;
+    scrollSpeed?: number;
+    scrollEase?: number;
+}
+
 export default function CircularGallery({
     items,
     bend = 3,
     textColor = '#ffffff',
     borderRadius = 0.05,
+    edgeSmooth = 0.002,
     font = 'bold 30px Figtree',
     scrollSpeed = 2,
     scrollEase = 0.12
-}: {
-    items?: { image: string; text: string }[];
-    bend?: number;
-    textColor?: string;
-    borderRadius?: number;
-    font?: string;
-    scrollSpeed?: number;
-    scrollEase?: number;
-}) {
+}: CircularGalleryProps) {
     const containerRef = useRef<HTMLDivElement>(null);
     useEffect(() => {
         if (!containerRef.current) return;
-        const app = new App(containerRef.current, { items, bend, textColor, borderRadius, font, scrollSpeed, scrollEase });
+        const app = new App(containerRef.current, { items, bend, textColor, borderRadius, edgeSmooth, font, scrollSpeed, scrollEase });
         return () => {
             app.destroy();
         };
-    }, [items, bend, textColor, borderRadius, font, scrollSpeed, scrollEase]);
+    }, [items, bend, textColor, borderRadius, edgeSmooth, font, scrollSpeed, scrollEase]);
     return <div className="circular-gallery" ref={containerRef} />;
 }
