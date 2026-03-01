@@ -328,12 +328,12 @@ export default function Home() {
                             whileHover={{ y: -5, scale: 1.02 }}
                             whileTap={{ scale: 0.98 }}
                             href="#requirements"
-                            className="group inline-flex items-center justify-center sm:justify-start gap-3 px-4 sm:pl-7 sm:pr-2 py-2.5 sm:py-2.5 bg-white text-[#1A1A1A] font-bold rounded-full hover:bg-gray-100 transition-all hover:shadow-xl shadow-[0_8px_30px_rgba(255,255,255,0.15)] whitespace-nowrap"
+                            className="group inline-flex items-center justify-center sm:justify-start gap-3.5 px-5 sm:pl-7 sm:pr-2 py-3 sm:py-2.5 bg-white text-[#1A1A1A] font-bold rounded-full hover:bg-gray-100 transition-all hover:shadow-xl shadow-[0_8px_30px_rgba(255,255,255,0.15)] whitespace-nowrap"
                         >
                             <span className="text-[14px] sm:text-[16px]">Start Project</span>
                             <motion.span
                                 whileHover={{ rotate: -35 }}
-                                className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-[#1A1A1A] flex items-center justify-center transition-transform shrink-0"
+                                className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#1A1A1A] flex items-center justify-center transition-transform shrink-0"
                             >
                                 <ArrowRight className="w-4 h-4 text-white" />
                             </motion.span>
@@ -342,12 +342,12 @@ export default function Home() {
                             whileHover={{ y: -5, scale: 1.02 }}
                             whileTap={{ scale: 0.98 }}
                             href="#portfolio"
-                            className="group inline-flex items-center justify-center sm:justify-start gap-3 px-4 sm:pl-7 sm:pr-2 py-2.5 sm:py-2.5 bg-white/10 backdrop-blur-md text-white font-bold rounded-full border border-white/20 hover:bg-white/20 transition-all text-center whitespace-nowrap"
+                            className="group inline-flex items-center justify-center sm:justify-start gap-3.5 px-5 sm:pl-7 sm:pr-2 py-3 sm:py-2.5 bg-white/10 backdrop-blur-md text-white font-bold rounded-full border border-white/20 hover:bg-white/20 transition-all text-center whitespace-nowrap"
                         >
                             <span className="text-[14px] sm:text-[16px]">Portfolio</span>
                             <motion.span
                                 whileHover={{ rotate: -35 }}
-                                className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white/20 flex items-center justify-center transition-transform shrink-0"
+                                className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white/20 flex items-center justify-center transition-transform shrink-0"
                             >
                                 <ArrowRight className="w-4 h-4 text-white" />
                             </motion.span>
@@ -630,14 +630,14 @@ export default function Home() {
                         initial="hidden"
                         whileInView="visible"
                         viewport={{ once: true }}
-                        className="xl:w-2/3 grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 w-full mt-10 xl:mt-0"
+                        className="xl:w-2/3 grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-8 w-full mt-10 xl:mt-0"
                     >
 
                         {/* Card 1 - Light Purple */}
                         <motion.div
                             variants={fadeUp}
                             custom={0}
-                            className="relative p-6 sm:p-10 rounded-[28px] sm:rounded-[40px] overflow-hidden group min-h-[200px] sm:min-h-[320px] flex flex-col gpu-accelerated"
+                            className="relative p-6 sm:p-10 rounded-[28px] sm:rounded-[40px] overflow-hidden group min-h-[260px] sm:min-h-[340px] flex flex-col gpu-accelerated"
                             style={{ backgroundColor: '#E5DBFF' }}
                         >
                             <div className="absolute -top-12 -right-12 w-48 h-48 rounded-full border-[20px] border-[#D1C0F9] opacity-70" />
@@ -647,7 +647,7 @@ export default function Home() {
                                 <div className="w-14 h-14 rounded-[20px] bg-white flex items-center justify-center shadow-sm transition-transform duration-500 group-hover:rotate-12 group-hover:scale-110">
                                     <Brain className="w-6 h-6" style={{ color: '#1A1A1A' }} />
                                 </div>
-                                <div className="space-y-3 mt-auto pt-10">
+                                <div className="space-y-4 mt-auto pt-10">
                                     <h3 className="text-2xl font-bold tracking-tight" style={{ color: '#1A1A1A', fontFamily: 'var(--font-sans)' }}>Sprint Planning</h3>
                                     <p className="text-[16px] leading-relaxed" style={{ color: '#4A4A4A' }}>
                                         Mapping out user stories and breaking the project into manageable, high-impact sprints.
@@ -660,7 +660,7 @@ export default function Home() {
                         <motion.div
                             variants={fadeUp}
                             custom={1}
-                            className="relative p-6 sm:p-10 rounded-[28px] sm:rounded-[40px] overflow-hidden group md:translate-y-12 min-h-[200px] sm:min-h-[320px] flex flex-col gpu-accelerated"
+                            className="relative p-6 sm:p-10 rounded-[28px] sm:rounded-[40px] overflow-hidden group md:translate-y-12 min-h-[260px] sm:min-h-[340px] flex flex-col gpu-accelerated"
                             style={{ backgroundColor: '#6B4EFF' }}
                         >
                             <div className="absolute -top-4 -right-4 w-40 h-40 bg-[#8C74FF] rounded-full rotate-12 opacity-80" />
@@ -670,7 +670,7 @@ export default function Home() {
                                 <div className="w-14 h-14 rounded-[20px] bg-white/20 flex items-center justify-center shadow-sm backdrop-blur-sm transition-transform duration-500 group-hover:rotate-12 group-hover:scale-110">
                                     <Box className="w-6 h-6 text-white" />
                                 </div>
-                                <div className="space-y-3 mt-auto pt-10">
+                                <div className="space-y-4 mt-auto pt-10">
                                     <h3 className="text-2xl font-bold tracking-tight text-white" style={{ fontFamily: 'var(--font-sans)' }}>Design Sprint</h3>
                                     <p className="text-[16px] leading-relaxed text-white/90">
                                         Rapid pixel-perfect UI concepts and quick validation before any code is written.
@@ -683,7 +683,7 @@ export default function Home() {
                         <motion.div
                             variants={fadeUp}
                             custom={2}
-                            className="relative p-6 sm:p-10 rounded-[28px] sm:rounded-[40px] overflow-hidden group min-h-[200px] sm:min-h-[320px] flex flex-col mt-4 md:mt-0 gpu-accelerated"
+                            className="relative p-6 sm:p-10 rounded-[28px] sm:rounded-[40px] overflow-hidden group min-h-[260px] sm:min-h-[340px] flex flex-col mt-4 md:mt-0 gpu-accelerated"
                             style={{ backgroundColor: '#FFD166' }}
                         >
                             <div className="absolute top-8 right-8 grid grid-cols-4 gap-3 opacity-30">
@@ -694,7 +694,7 @@ export default function Home() {
                                 <div className="w-14 h-14 rounded-[20px] bg-white flex items-center justify-center shadow-sm transition-transform duration-500 group-hover:rotate-12 group-hover:scale-110">
                                     <Globe className="w-6 h-6" style={{ color: '#1A1A1A' }} />
                                 </div>
-                                <div className="space-y-3 mt-auto pt-10">
+                                <div className="space-y-4 mt-auto pt-10">
                                     <h3 className="text-2xl font-bold tracking-tight" style={{ color: '#1A1A1A', fontFamily: 'var(--font-sans)' }}>Agile Development</h3>
                                     <p className="text-[16px] leading-relaxed" style={{ color: '#4A4A4A' }}>
                                         Heavy-duty engineering in 2-week cycles with continuous CI/CD integration.
@@ -707,7 +707,7 @@ export default function Home() {
                         <motion.div
                             variants={fadeUp}
                             custom={3}
-                            className="relative p-6 sm:p-10 rounded-[28px] sm:rounded-[40px] overflow-hidden group md:translate-y-12 min-h-[200px] sm:min-h-[320px] flex flex-col mt-4 md:mt-0 gpu-accelerated"
+                            className="relative p-6 sm:p-10 rounded-[28px] sm:rounded-[40px] overflow-hidden group md:translate-y-12 min-h-[260px] sm:min-h-[340px] flex flex-col mt-4 md:mt-0 gpu-accelerated"
                             style={{ backgroundColor: '#BEE5FD' }}
                         >
                             <div className="absolute -bottom-10 -right-10 w-48 h-48 bg-[#9BD6FB] rounded-full" />
@@ -717,7 +717,7 @@ export default function Home() {
                                 <div className="w-14 h-14 rounded-[20px] bg-white flex items-center justify-center shadow-sm transition-transform duration-500 group-hover:rotate-12 group-hover:scale-110">
                                     <Send className="w-6 h-6" style={{ color: '#1A1A1A' }} />
                                 </div>
-                                <div className="space-y-3 mt-auto pt-10">
+                                <div className="space-y-4 mt-auto pt-10">
                                     <h3 className="text-2xl font-bold tracking-tight" style={{ color: '#1A1A1A', fontFamily: 'var(--font-sans)' }}>Ship & Iterate</h3>
                                     <p className="text-[16px] leading-relaxed" style={{ color: '#4A4A4A' }}>
                                         Flawless deployment followed by data-driven refinements for peak performance.
@@ -798,10 +798,10 @@ export default function Home() {
                                 whileHover={{ scale: 1.05, y: -2 }}
                                 whileTap={{ scale: 0.95 }}
                                 href="/contact"
-                                className="group inline-flex items-center gap-2.5 pl-6 pr-1.5 py-1.5 bg-[#1A1A1A] text-white font-bold rounded-full hover:shadow-[0_20px_40px_rgba(0,0,0,0.2)] transition-all"
+                                className="group inline-flex items-center gap-3.5 pl-7 pr-2 py-2.5 bg-[#1A1A1A] text-white font-bold rounded-full hover:shadow-[0_20px_40px_rgba(0,0,0,0.2)] transition-all"
                             >
-                                <span className="text-[13px] sm:text-[16px] uppercase tracking-widest">Get Started</span>
-                                <span className="w-8 h-8 sm:w-11 sm:h-11 rounded-full bg-white flex items-center justify-center transition-transform group-hover:rotate-[-45deg]">
+                                <span className="text-[14px] sm:text-[16px] uppercase tracking-widest">Get Started</span>
+                                <span className="w-9 h-9 sm:w-11 sm:h-11 rounded-full bg-white flex items-center justify-center transition-transform group-hover:rotate-[-45deg]">
                                     <ArrowRight className="w-4 h-4 sm:w-6 sm:h-6 text-[#1A1A1A]" />
                                 </span>
                             </motion.a>

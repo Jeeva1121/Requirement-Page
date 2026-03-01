@@ -327,7 +327,7 @@ export default function ContactPage() {
             <section className="pt-16 sm:pt-24 pb-8 sm:pb-12 px-4 sm:px-6 bg-white border-b border-gray-100 relative">
                 {/* Back Button & Title Area */}
                 <div className="w-full flex flex-col md:flex-row items-center justify-center gap-4 sm:gap-0">
-                    <div className="w-full md:absolute md:left-0 md:top-16 flex justify-start px-1 sm:px-4 md:px-0">
+                    <div className="w-full absolute left-0 top-6 md:top-16 flex justify-start px-1 sm:px-4 md:px-0 z-20">
                         <motion.a
                             href="/"
                             onClick={handleBackHome}
@@ -335,7 +335,7 @@ export default function ContactPage() {
                             animate={{ opacity: 1, x: 0 }}
                             whileHover={{ scale: 1.1, x: -5 }}
                             whileTap={{ scale: 0.9 }}
-                            className="w-8 h-8 sm:w-12 sm:h-12 flex items-center justify-center bg-[#6B4EFF] rounded-full text-white shadow-[0_10px_30px_rgba(107,78,255,0.3)] transition-all group active:scale-95 ml-2 md:ml-44 mt-8 md:mt-8"
+                            className="w-8 h-8 sm:w-12 sm:h-12 flex items-center justify-center bg-[#6B4EFF] rounded-full text-white shadow-[0_10px_30px_rgba(107,78,255,0.3)] transition-all group active:scale-95 ml-2 md:ml-44 mt-0 md:mt-8"
                             title="Back to Home"
                         >
                             <ArrowLeft className="w-3.5 h-3.5 sm:w-5 sm:h-5 transition-transform group-hover:-translate-x-1" />
